@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/angular.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+<div ng-controller="redColorController">
+    root Scope Color : {{rootScopeColor}} <br>
+    red Color Controller : {{redColor}} <span style="color: red;" ng-hide="redColor">red color is undefined</span><br>
+    green Color Controller : {{greenColor}}<span style="color: red;" ng-hide="greenColor">green color is undefined</span>
+</div>
+<br>
+<br>
+<div ng-controller="greenColorController">
+    root Scope Color : {{rootScopeColor}} <br>
+    red Color Controller : {{redColor}} <span style="color: red;" ng-hide="redColor">red color is undefined</span><br>
+    green Color Controller : {{greenColor}}<span style="color: red;" ng-hide="greenColor">green color is undefined</span>
+</div>
+</body>
+</html>

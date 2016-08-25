@@ -1,0 +1,23 @@
+<div ng-controller="myController">
+    <input type="checkbox" ng-model="hideGender">hide
+    <br>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th ng-hide="hideGender">Gender</th>
+            <th>Salary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="employee in employees ">
+            <td>{{employee.name | uppercase }}</td>
+            <td ng-show="!hideGender">{{employee.gender | gender}}</td>
+            <td ng-hide="hideGender">{{employee.salary | number:2}}</td>
+            <td ng-show="hideGender">####</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

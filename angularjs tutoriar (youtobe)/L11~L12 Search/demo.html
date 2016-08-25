@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/angular.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            font-family: Arial;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        th {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="myController">
+    Search :
+    <input type="text" placeholder="Search name" ng-model="searchText.name"/>
+    <input type="text" placeholder="Search gender" ng-model="searchText.gender"/>
+    <input type="checkbox" ng-model="exactMatch"> Exat Match
+    <br>
+    <!--Search in Name and gender:<input type="text" placeholder="Search gender" ng-model="searchText"/>-->
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Gender</th>
+            <th>Salary(number)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--<tr ng-repeat="employee in employees | filter:mySearch">-->
+        <tr ng-repeat="employee in employees | filter:searchText">
+            <td>{{employee.name | uppercase }}</td>
+            <td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+            <td>{{employee.gender | lowercase}}</td>
+            <td>{{employee.salary | number:2}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

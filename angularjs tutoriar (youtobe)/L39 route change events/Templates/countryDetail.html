@@ -1,0 +1,9 @@
+    <fieldset id="{{country.Name}}">
+        <legend>{{country.Name}}</legend>
+        <ul>
+            <li ng-repeat="city in country.Cities">
+                {{city.Name}}
+            </li>
+        </ul>
+    </fieldset>
+    <a href="index.html#/countries">return to cuntries list</a>

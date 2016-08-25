@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/angular.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+<!--<div ng-controller="countryController">-->
+<!--{{name}}-->
+<!--<div ng-controller="stateController">-->
+<!--{{$parent.name}} - {{name}}-->
+<!--<div ng-controller="cityController">-->
+<!--{{$parent.$parent.name}} - {{$parent.name}} - {{name}}-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<div ng-controller="countryController as countryCtrl">
+    {{countryCtrl.name}}
+    <div ng-controller="stateController as stateCtrl">
+        {{countryCtrl.name}} - {{stateCtrl.name}}
+        <div ng-controller="cityController as cityCtrl">
+            {{countryCtrl.name}} - {{stateCtrl.name}} - {{cityCtrl.name}}
+        </div>
+    </div>
+</div>
+</body>
+</html>

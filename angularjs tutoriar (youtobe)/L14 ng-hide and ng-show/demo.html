@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/angular.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            font-family: Arial;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        th {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="myController">
+    <input type="checkbox" ng-model="hideGender">hide
+    <br>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th ng-hide="hideGender">Gender</th>
+            <th>Salary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="employee in employees ">
+            <td>{{employee.name | uppercase }}</td>
+            <td ng-show="!hideGender">{{employee.gender | gender}}</td>
+            <td ng-hide="hideGender">{{employee.salary | number:2}}</td>
+            <td ng-show="hideGender">####</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

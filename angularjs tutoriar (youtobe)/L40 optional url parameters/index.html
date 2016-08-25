@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/angular.js"></script>
+    <script src="../../js/angular-route.js"></script>
+    <script src="script.js"></script>
+    <style>
+        .header {
+            width: 800px;
+            height: 80px;
+            text-align: center;
+            background-color: #bdbdbd;
+        }
+
+        .footer {
+            background-color: #bdbdbd;
+            text-align: center;
+        }
+
+        .leftMenu {
+            height: 500px;
+            background-color: #d8d8d8;
+            width: 150px;
+        }
+
+        .mainContent {
+            width: 650px;
+            height: 500px;
+            background-color: #e6e6e6;
+        }
+        a{
+            display: block;
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <td colspan="2" class="header">
+                <h1>
+                    website Header
+                </h1>
+            </td>
+        </tr>
+        <tr>
+            <td class="leftMenu">
+                <a href="#/home">Home</a>
+                <a href="#/courses">Courses</a>
+                <a href="#/countries">Countries</a>
+            </td>
+            <td class="mainContent">
+                <ng-view>
+
+                </ng-view>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="footer">
+                <p>
+                    website Footer
+                </p>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

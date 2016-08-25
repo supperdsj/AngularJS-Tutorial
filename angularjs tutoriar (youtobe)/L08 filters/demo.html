@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/angular.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            font-family: Arial;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        th {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="myController">
+    rows to display :<input type="text" step="1" min="0" max="6" ng-model="rowLimit">
+    <br>
+    <br>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Gender</th>
+            <th>Salary(number)</th>
+            <th>Salary(currency)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--索引从1开始-->
+        <!--<tr ng-repeat="employee in employees | limitTo:rowLimit:1">-->
+        <tr ng-repeat="employee in employees | filter:{name:rowLimit}">
+            <td>{{employee.name | uppercase }}</td>
+            <td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+            <td>{{employee.gender | lowercase}}</td>
+            <td>{{employee.salary | number:2}}</td>
+            <td>{{employee.salary | currency:"RMB":1}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
