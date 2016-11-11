@@ -25,6 +25,12 @@
 </head>
 <body>
 <div ng-controller="myController">
+    <div ng-repeat="ta in testArray | findByStringify:rowLimit:2">
+        <span ng-bind="ta.name"></span>
+        <div ng-repeat="t in ta.tag | findByStringify:rowLimit:2">
+            <span ng-bind="t.name"></span>
+        </div>
+    </div>
     rows to display :<input type="text" step="1" min="0" max="6" ng-model="rowLimit">
     <br>
     <br>
@@ -41,12 +47,17 @@
         <tbody>
         <!--索引从1开始-->
         <!--<tr ng-repeat="employee in employees | limitTo:rowLimit:1">-->
-        <tr ng-repeat="employee in employees | filter:{name:rowLimit}">
+        <!--<tr ng-repeat="employee in employees | filter:{name:rowLimit}">-->
+        <tr ng-repeat="employee in employees | findByStringify:rowLimit">
             <td>{{employee.name | uppercase }}</td>
-            <td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
-            <td>{{employee.gender | lowercase}}</td>
-            <td>{{employee.salary | number:2}}</td>
-            <td>{{employee.salary | currency:"RMB":1}}</td>
+            <!--<td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>-->
+            <!--<td>{{employee.gender | lowercase}}</td>-->
+            <!--<td>{{employee.salary | number:2}}</td>-->
+            <!--<td>{{employee.salary | currency:"RMB":1}}</td>-->
+            <td>{{employee.dateOfBirth}}</td>
+            <td>{{employee.gender}}</td>
+            <td>{{employee.salary}}</td>
+            <td>{{employee.salary}}</td>
         </tr>
         </tbody>
     </table>
